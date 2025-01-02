@@ -1,15 +1,14 @@
 chrome.runtime.onInstalled.addListener(() => {
-    chrome.alarms.create('taskReminder', { periodInMinutes: 60 });  // Trigger every 30 seconds
-    console.log('Alarm created on installation.');
+    chrome.alarms.create('taskReminder', { periodInMinutes: 60 }); 
+    // console.log('Alarm created on installation.');
 });
 
-// Ensure alarm is recreated if extension is restarted
+
 chrome.runtime.onStartup.addListener(() => {
-    chrome.alarms.create('taskReminder', { periodInMinutes: 60 });  // Trigger every 30 seconds
-    console.log('Alarm recreated on startup.');
+    chrome.alarms.create('taskReminder', { periodInMinutes: 60 });  
+    // console.log('Alarm recreated on startup.');
 });
 
-// Handle alarm trigger
 chrome.alarms.onAlarm.addListener((alarm) => {
     if (alarm.name === 'taskReminder') {
         chrome.storage.local.get('tasks', (result) => {
