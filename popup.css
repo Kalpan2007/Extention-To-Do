@@ -75,8 +75,7 @@ button.done-btn {
     padding: 8px 12px;
     font-size: 14px;
     cursor: pointer;
-    max-width: 55px;  /* Ensures fixed width */
-    text-align: center;
+    max-width: 55px;  
 }
 
 button.done-btn:hover {
